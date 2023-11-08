@@ -1,6 +1,11 @@
 function Header() {
-  const isUserLogged = true;
+  const userLogged = {
+    lastname: "Robert",
+    firstname: "David",
+    job: "web dev",
+  };
 
+  const isUserLogged = true;
   const itemsInCart = 12;
 
   return (
@@ -8,7 +13,13 @@ function Header() {
       <h1>Super ecommerce</h1>
       <nav>
         <ul>
-          {isUserLogged ? <li>David Robert</li> : <li>Veuillez vous connecter</li>}
+          {isUserLogged ? (
+            <li>
+              {userLogged.firstname} {userLogged.lastname} - {userLogged.job}
+            </li>
+          ) : (
+            <li>Veuillez vous connecter</li>
+          )}
 
           <li>Home</li>
           <li>Products</li>
